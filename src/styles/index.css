@@ -1,13 +1,45 @@
 body {
-    background-color: dimgray;
+    background-color: gray;
 }
+
 .title1 {
     color: white;
     margin-top: 20px;
     text-align: center;
 }
+
 .title2 {
     color: white;
     margin-bottom: 20px;
     text-align: center;
+}
+
+.title3 {
+    color: white;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.startingDiv {
+    background-color: dimgray;
+    text-align: center;
+    margin: 100px
+    
+}
+
+.icon {
+    background-color: gray;
+    box-shadow: none;
+    margin: 10px;
+}
+
+.iconX {
+    color: yellow;
+    margin: auto
+}
+
+.iconO {
+    color: blue;
+    margin: auto
 }
