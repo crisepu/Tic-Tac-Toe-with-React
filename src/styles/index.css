@@ -43,3 +43,26 @@ body {
     color: blue;
     margin: auto
 }
+.rowTop {
+    height: 150px;
+    border-bottom: solid;
+    width: 60%;
+
+}
+.rowCenter {
+    height: 150px;
+    width: 60%;
+}
+.rowBottom {
+    height: 150px;
+    border-top: solid;
+    width: 60%;
+}
+.colLeft {
+   
+    border-right: solid;
+}
+.colRight {
+
+    border-left: solid;
+}

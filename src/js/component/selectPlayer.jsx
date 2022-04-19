@@ -57,7 +57,13 @@ const SelectPlayer = () => {
 			</>
 		);
 	} else {
-		return <Game />;
+		return (
+			<Game
+				playerStart={playerStart}
+				player1={player1}
+				player2={player2}
+			/>
+		);
 	}
 };
 
