@@ -24,7 +24,7 @@ const GameBoard = (props) => {
 		playerOrder = [props.player2, props.player1];
 		iconOrder = ["O", "X"];
 	}
-	console.log(playerOrder);
+
 	function iconTurn() {
 		if (counter % 2 != 0) {
 			setCounter(counter + 1);
@@ -35,8 +35,8 @@ const GameBoard = (props) => {
 		}
 	}
 
-	function playerTurn() {
-		if (counter % 2 != 0) {
+	function playerTurn(count) {
+		if (count % 2 != 0) {
 			return playerOrder[0];
 		} else {
 			return playerOrder[1];
@@ -101,7 +101,32 @@ const GameBoard = (props) => {
 		);
 	}
 
-	return <>{board()}</>;
+	if (
+		(p1 == p2 && p2 == p3 && p3 != "") ||
+		(p4 == p5 && p5 == p6 && p6 != "") ||
+		(p7 == p8 && p8 == p9 && p9 != "") ||
+		(p1 == p5 && p5 == p9 && p9 != "") ||
+		(p3 == p5 && p5 == p7 && p7 != "") ||
+		(p1 == p4 && p4 == p7 && p7 != "") ||
+		(p2 == p5 && p5 == p8 && p8 != "") ||
+		(p3 == p6 && p6 == p9 && p9 != "")
+	) {
+		return (
+			<>
+				<h2 className="title2">
+					{playerTurn(counter - 1)} you are the winner!!!!
+				</h2>
+				{board()}
+			</>
+		);
+	} else {
+		return (
+			<>
+				<h2 className="title2">{playerTurn(counter)} is you turn!</h2>
+				{board()}
+			</>
+		);
+	}
 };
 
 export default GameBoard;
