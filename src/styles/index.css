@@ -66,3 +66,7 @@ body {
 
     border-left: solid;
 }
+.iconBoard {
+    text-align: center;
+    line-height: 130px;
+}

@@ -5,7 +5,7 @@ import SelectPlayer from "./selectPlayer.jsx";
 const Home = () => {
 	return (
 		<>
-			<h1 className="title1">Tic Tac Toe in React.js</h1>;
+			<h1 className="title1">Tic Tac Toe in React.js</h1>
 			<SelectPlayer />
 		</>
 	);
