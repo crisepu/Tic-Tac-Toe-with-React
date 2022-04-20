@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Game from "./game.jsx";
+import GameBoard from "./gameBoard.jsx";
 
 //create your first component
 const SelectPlayer = () => {
@@ -58,7 +58,7 @@ const SelectPlayer = () => {
 		);
 	} else {
 		return (
-			<Game
+			<GameBoard
 				playerStart={playerStart}
 				player1={player1}
 				player2={player2}
