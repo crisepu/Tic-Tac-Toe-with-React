@@ -72,7 +72,7 @@ const GameBoard = (props) => {
 							if (pos[0] === "" && !winnerFlag) {
 								setP1(iconTurn());
 							}
-							if (thereIsAWinner(positions)) {
+							if (thereIsAWinner(pos)) {
 								setWinnerFlag(true);
 							}
 						}}>
@@ -84,7 +84,7 @@ const GameBoard = (props) => {
 							if (pos[1] === "" && !winnerFlag) {
 								setP2(iconTurn());
 							}
-							if (thereIsAWinner(positions)) {
+							if (thereIsAWinner(pos)) {
 								setWinnerFlag(true);
 							}
 						}}>
@@ -96,7 +96,7 @@ const GameBoard = (props) => {
 							if (pos[2] === "" && !winnerFlag) {
 								setP3(iconTurn());
 							}
-							if (thereIsAWinner(positions)) {
+							if (thereIsAWinner(pos)) {
 								setWinnerFlag(true);
 							}
 						}}>
@@ -110,7 +110,7 @@ const GameBoard = (props) => {
 							if (pos[3] === "" && !winnerFlag) {
 								setP4(iconTurn());
 							}
-							if (thereIsAWinner(positions)) {
+							if (thereIsAWinner(pos)) {
 								setWinnerFlag(true);
 							}
 						}}>
@@ -122,7 +122,7 @@ const GameBoard = (props) => {
 							if (pos[4] === "" && !winnerFlag) {
 								setP5(iconTurn());
 							}
-							if (thereIsAWinner(positions)) {
+							if (thereIsAWinner(pos)) {
 								setWinnerFlag(true);
 							}
 						}}>
@@ -134,7 +134,7 @@ const GameBoard = (props) => {
 							if (pos[5] === "" && !winnerFlag) {
 								setP6(iconTurn());
 							}
-							if (thereIsAWinner(positions)) {
+							if (thereIsAWinner(pos)) {
 								setWinnerFlag(true);
 							}
 						}}>
@@ -148,7 +148,7 @@ const GameBoard = (props) => {
 							if (pos[6] === "" && !winnerFlag) {
 								setP7(iconTurn());
 							}
-							if (thereIsAWinner(positions)) {
+							if (thereIsAWinner(pos)) {
 								setWinnerFlag(true);
 							}
 						}}>
@@ -160,7 +160,7 @@ const GameBoard = (props) => {
 							if (pos[7] === "" && !winnerFlag) {
 								setP8(iconTurn());
 							}
-							if (thereIsAWinner(positions)) {
+							if (thereIsAWinner(pos)) {
 								setWinnerFlag(true);
 							}
 						}}>
@@ -172,7 +172,7 @@ const GameBoard = (props) => {
 							if (pos[8] === "" && !winnerFlag) {
 								setP9(iconTurn());
 							}
-							if (thereIsAWinner(positions)) {
+							if (thereIsAWinner(pos)) {
 								setWinnerFlag(true);
 							}
 						}}>
@@ -182,8 +182,8 @@ const GameBoard = (props) => {
 			</div>
 		);
 	}
-	console.log(winnerFlag);
-	if (winnerFlag) {
+	console.log(thereIsAWinner(positions));
+	if (thereIsAWinner(positions)) {
 		return (
 			<>
 				<h2 className="title2">
