@@ -13,6 +13,8 @@ const GameBoard = (props) => {
 	const [p8, setP8] = useState("");
 	const [p9, setP9] = useState("");
 	const [counter, setCounter] = useState(1);
+	const [winnerFlag, setWinnerFlag] = useState(false);
+	let positions = [p1, p2, p3, p4, p5, p6, p7, p8, p9];
 
 	let playerOrder = [];
 	let iconOrder = [];
@@ -43,87 +45,158 @@ const GameBoard = (props) => {
 		}
 	}
 
-	function board() {
+	function thereIsAWinner(pos) {
+		if (
+			(pos[0] == pos[1] && pos[1] == pos[2] && pos[2] != "") ||
+			(pos[3] == pos[4] && pos[4] == pos[5] && pos[5] != "") ||
+			(pos[6] == pos[7] && pos[7] == pos[8] && pos[8] != "") ||
+			(pos[0] == pos[4] && pos[4] == pos[8] && pos[8] != "") ||
+			(pos[2] == pos[4] && pos[4] == pos[6] && pos[6] != "") ||
+			(pos[0] == pos[3] && pos[3] == pos[6] && pos[6] != "") ||
+			(pos[1] == pos[4] && pos[4] == pos[7] && pos[7] != "") ||
+			(pos[2] == pos[5] && pos[5] == pos[8] && pos[8] != "")
+		) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	function board(pos) {
 		return (
 			<div className="container">
 				<div className="row rowTop mx-auto">
 					<div
 						className="col colLeft"
-						onClick={() => (p1 === "" ? setP1(iconTurn()) : p1)}>
-						<h1 className="iconBoard">{p1}</h1>
+						onClick={() => {
+							if (pos[0] === "" && !winnerFlag) {
+								setP1(iconTurn());
+							}
+							if (thereIsAWinner(positions)) {
+								setWinnerFlag(true);
+							}
+						}}>
+						<h1 className="iconBoard">{pos[0]}</h1>
 					</div>
 					<div
 						className="col colCenter"
-						onClick={() => (p2 === "" ? setP2(iconTurn()) : p2)}>
-						<h1 className="iconBoard">{p2}</h1>
+						onClick={() => {
+							if (pos[1] === "" && !winnerFlag) {
+								setP2(iconTurn());
+							}
+							if (thereIsAWinner(positions)) {
+								setWinnerFlag(true);
+							}
+						}}>
+						<h1 className="iconBoard">{pos[1]}</h1>
 					</div>
 					<div
 						className="col colRight"
-						onClick={() => (p3 === "" ? setP3(iconTurn()) : p3)}>
-						<h1 className="iconBoard">{p3}</h1>
+						onClick={() => {
+							if (pos[2] === "" && !winnerFlag) {
+								setP3(iconTurn());
+							}
+							if (thereIsAWinner(positions)) {
+								setWinnerFlag(true);
+							}
+						}}>
+						<h1 className="iconBoard">{pos[2]}</h1>
 					</div>
 				</div>
 				<div className="row rowCenter mx-auto">
 					<div
 						className="col colLeft"
-						onClick={() => (p4 === "" ? setP4(iconTurn()) : p4)}>
-						<h1 className="iconBoard">{p4}</h1>
+						onClick={() => {
+							if (pos[3] === "" && !winnerFlag) {
+								setP4(iconTurn());
+							}
+							if (thereIsAWinner(positions)) {
+								setWinnerFlag(true);
+							}
+						}}>
+						<h1 className="iconBoard">{pos[3]}</h1>
 					</div>
 					<div
 						className="col colCenter"
-						onClick={() => (p5 === "" ? setP5(iconTurn()) : p5)}>
-						<h1 className="iconBoard">{p5}</h1>
+						onClick={() => {
+							if (pos[4] === "" && !winnerFlag) {
+								setP5(iconTurn());
+							}
+							if (thereIsAWinner(positions)) {
+								setWinnerFlag(true);
+							}
+						}}>
+						<h1 className="iconBoard">{pos[4]}</h1>
 					</div>
 					<div
 						className="col colRight"
-						onClick={() => (p6 === "" ? setP6(iconTurn()) : p6)}>
-						<h1 className="iconBoard">{p6}</h1>
+						onClick={() => {
+							if (pos[5] === "" && !winnerFlag) {
+								setP6(iconTurn());
+							}
+							if (thereIsAWinner(positions)) {
+								setWinnerFlag(true);
+							}
+						}}>
+						<h1 className="iconBoard">{pos[5]}</h1>
 					</div>
 				</div>
 				<div className="row rowBottom mx-auto">
 					<div
 						className="col colLeft"
-						onClick={() => (p7 === "" ? setP7(iconTurn()) : p7)}>
-						<h1 className="iconBoard">{p7}</h1>
+						onClick={() => {
+							if (pos[6] === "" && !winnerFlag) {
+								setP7(iconTurn());
+							}
+							if (thereIsAWinner(positions)) {
+								setWinnerFlag(true);
+							}
+						}}>
+						<h1 className="iconBoard">{pos[6]}</h1>
 					</div>
 					<div
 						className="col colCenter"
-						onClick={() => (p8 === "" ? setP8(iconTurn()) : p8)}>
-						<h1 className="iconBoard">{p8}</h1>
+						onClick={() => {
+							if (pos[7] === "" && !winnerFlag) {
+								setP8(iconTurn());
+							}
+							if (thereIsAWinner(positions)) {
+								setWinnerFlag(true);
+							}
+						}}>
+						<h1 className="iconBoard">{pos[7]}</h1>
 					</div>
 					<div
 						className="col colRight"
-						onClick={() => (p9 === "" ? setP9(iconTurn()) : p9)}>
-						<h1 className="iconBoard">{p9}</h1>
+						onClick={() => {
+							if (pos[8] === "" && !winnerFlag) {
+								setP9(iconTurn());
+							}
+							if (thereIsAWinner(positions)) {
+								setWinnerFlag(true);
+							}
+						}}>
+						<h1 className="iconBoard">{pos[8]}</h1>
 					</div>
 				</div>
 			</div>
 		);
 	}
-
-	if (
-		(p1 == p2 && p2 == p3 && p3 != "") ||
-		(p4 == p5 && p5 == p6 && p6 != "") ||
-		(p7 == p8 && p8 == p9 && p9 != "") ||
-		(p1 == p5 && p5 == p9 && p9 != "") ||
-		(p3 == p5 && p5 == p7 && p7 != "") ||
-		(p1 == p4 && p4 == p7 && p7 != "") ||
-		(p2 == p5 && p5 == p8 && p8 != "") ||
-		(p3 == p6 && p6 == p9 && p9 != "")
-	) {
+	console.log(winnerFlag);
+	if (winnerFlag) {
 		return (
 			<>
 				<h2 className="title2">
 					{playerTurn(counter - 1)} you are the winner!!!!
 				</h2>
-				{board()}
+				{board(positions)}
 			</>
 		);
 	} else {
 		return (
 			<>
 				<h2 className="title2">{playerTurn(counter)} is you turn!</h2>
-				{board()}
+				{board(positions)}
 			</>
 		);
 	}
