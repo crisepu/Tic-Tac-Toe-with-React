@@ -30,6 +30,8 @@ const SelectPlayer = () => {
 						placeholder="Player 2 username"
 					/>
 					<div>
+						<h3 className="title3">Who starts?</h3>
+						<span className="text-white">Player 1</span>
 						<button
 							className="icon"
 							onClick={() =>
@@ -52,6 +54,7 @@ const SelectPlayer = () => {
 							}>
 							<h1 className="iconO">O</h1>
 						</button>
+						<span className="text-white">Player 2</span>
 					</div>
 				</div>
 			</>
