@@ -27,6 +27,20 @@ const GameBoard = (props) => {
 		iconOrder = ["O", "X"];
 	}
 
+	function reset() {
+		setP1("");
+		setP2("");
+		setP3("");
+		setP4("");
+		setP5("");
+		setP6("");
+		setP7("");
+		setP8("");
+		setP9("");
+		setCounter(1);
+		setWinnerFlag(false);
+	}
+
 	function iconTurn() {
 		if (counter % 2 != 0) {
 			setCounter(counter + 1);
@@ -56,6 +70,9 @@ const GameBoard = (props) => {
 			(pos[1] == pos[4] && pos[4] == pos[7] && pos[7] != "") ||
 			(pos[2] == pos[5] && pos[5] == pos[8] && pos[8] != "")
 		) {
+			if (winnerFlag === false) {
+				setWinnerFlag(true);
+			}
 			return true;
 		} else {
 			return false;
@@ -72,9 +89,6 @@ const GameBoard = (props) => {
 							if (pos[0] === "" && !winnerFlag) {
 								setP1(iconTurn());
 							}
-							if (thereIsAWinner(pos)) {
-								setWinnerFlag(true);
-							}
 						}}>
 						<h1 className="iconBoard">{pos[0]}</h1>
 					</div>
@@ -84,9 +98,6 @@ const GameBoard = (props) => {
 							if (pos[1] === "" && !winnerFlag) {
 								setP2(iconTurn());
 							}
-							if (thereIsAWinner(pos)) {
-								setWinnerFlag(true);
-							}
 						}}>
 						<h1 className="iconBoard">{pos[1]}</h1>
 					</div>
@@ -95,9 +106,6 @@ const GameBoard = (props) => {
 						onClick={() => {
 							if (pos[2] === "" && !winnerFlag) {
 								setP3(iconTurn());
-							}
-							if (thereIsAWinner(pos)) {
-								setWinnerFlag(true);
 							}
 						}}>
 						<h1 className="iconBoard">{pos[2]}</h1>
@@ -110,9 +118,6 @@ const GameBoard = (props) => {
 							if (pos[3] === "" && !winnerFlag) {
 								setP4(iconTurn());
 							}
-							if (thereIsAWinner(pos)) {
-								setWinnerFlag(true);
-							}
 						}}>
 						<h1 className="iconBoard">{pos[3]}</h1>
 					</div>
@@ -122,9 +127,6 @@ const GameBoard = (props) => {
 							if (pos[4] === "" && !winnerFlag) {
 								setP5(iconTurn());
 							}
-							if (thereIsAWinner(pos)) {
-								setWinnerFlag(true);
-							}
 						}}>
 						<h1 className="iconBoard">{pos[4]}</h1>
 					</div>
@@ -133,9 +135,6 @@ const GameBoard = (props) => {
 						onClick={() => {
 							if (pos[5] === "" && !winnerFlag) {
 								setP6(iconTurn());
-							}
-							if (thereIsAWinner(pos)) {
-								setWinnerFlag(true);
 							}
 						}}>
 						<h1 className="iconBoard">{pos[5]}</h1>
@@ -148,9 +147,6 @@ const GameBoard = (props) => {
 							if (pos[6] === "" && !winnerFlag) {
 								setP7(iconTurn());
 							}
-							if (thereIsAWinner(pos)) {
-								setWinnerFlag(true);
-							}
 						}}>
 						<h1 className="iconBoard">{pos[6]}</h1>
 					</div>
@@ -159,9 +155,6 @@ const GameBoard = (props) => {
 						onClick={() => {
 							if (pos[7] === "" && !winnerFlag) {
 								setP8(iconTurn());
-							}
-							if (thereIsAWinner(pos)) {
-								setWinnerFlag(true);
 							}
 						}}>
 						<h1 className="iconBoard">{pos[7]}</h1>
@@ -172,17 +165,19 @@ const GameBoard = (props) => {
 							if (pos[8] === "" && !winnerFlag) {
 								setP9(iconTurn());
 							}
-							if (thereIsAWinner(pos)) {
-								setWinnerFlag(true);
-							}
 						}}>
 						<h1 className="iconBoard">{pos[8]}</h1>
 					</div>
 				</div>
+				<div className="row mx-auto">
+					<button className="buttonReset" onClick={() => reset()}>
+						Reset
+					</button>
+				</div>
 			</div>
 		);
 	}
-	console.log(thereIsAWinner(positions));
+
 	if (thereIsAWinner(positions)) {
 		return (
 			<>
@@ -192,10 +187,18 @@ const GameBoard = (props) => {
 				{board(positions)}
 			</>
 		);
-	} else {
+	}
+	if (counter != 10) {
 		return (
 			<>
 				<h2 className="title2">{playerTurn(counter)} is you turn!</h2>
+				{board(positions)}
+			</>
+		);
+	} else {
+		return (
+			<>
+				<h2 className="title2">This game has no winners :(</h2>
 				{board(positions)}
 			</>
 		);

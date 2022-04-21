@@ -70,3 +70,9 @@ body {
     text-align: center;
     line-height: 130px;
 }
+.buttonReset {
+    width: 10%;
+    margin: auto;
+    margin-top: 30px;
+    border-radius: 10px;
+}
